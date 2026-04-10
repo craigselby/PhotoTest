@@ -9,13 +9,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:    #0a0a0f;
-    --bg2:   #13131c;
-    --bg3:   #16161f;
-    --gold:  #c9a84c;
-    --gold-dim: rgba(201,168,76,0.12);
-    --white: #f0ede6;
-    --muted: #888880;
+    --bg:     #0a0a0f;
+    --bg2:    #13131c;
+    --gold:   #c9a84c;
+    --gold-l: #e8c96e;
+    --white:  #f0ede6;
+    --muted:  #888880;
     --border: rgba(201,168,76,0.15);
     --sidebar: 270px;
   }
@@ -33,7 +32,6 @@
     overflow-x: hidden;
   }
 
-  /* ── IMAGE PROTECTION ── */
   img {
     pointer-events: none;
     user-select: none;
@@ -82,8 +80,7 @@
   }
 
   .gold-rule {
-    width: 40px;
-    height: 1px;
+    width: 40px; height: 1px;
     background: var(--gold);
     opacity: 0.4;
     margin: 0.8rem 0 0;
@@ -115,11 +112,10 @@
     width: 100%;
     font-family: 'Montserrat', sans-serif;
     line-height: 1.4;
+    text-decoration: none;
   }
 
   .nav-link:hover { color: var(--white); padding-left: 0.4rem; }
-  .nav-link.active { color: var(--gold); padding-left: 0.4rem; }
-  .nav-link.active::before { content: '— '; color: var(--gold); }
 
   .sidebar-footer {
     margin-top: auto;
@@ -146,7 +142,6 @@
 
   .social-link {
     font-size: 0.7rem;
-    font-weight: 400;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
@@ -157,236 +152,376 @@
   .social-link:hover { color: var(--gold); }
 
   /* ── MAIN ── */
-  .main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  .main { flex: 1; display: flex; flex-direction: column; min-width: 0; overflow-y: auto; }
 
-  .topbar { padding: 1.8rem 2.5rem; border-bottom: 1px solid var(--border); }
-
-  .topbar-intro {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(0.95rem, 1.5vw, 1.15rem);
-    font-weight: 300;
-    font-style: italic;
-    color: var(--muted);
-    max-width: 72ch;
-    line-height: 1.65;
+  /* ── SLIDESHOW ── */
+  .slideshow {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 400px;
+    overflow: hidden;
+    background: var(--bg);
   }
 
-  .topbar-intro strong { color: var(--white); font-style: normal; font-weight: 400; }
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+  }
 
-  /* ── FILTER BAR ── */
-  .filter-bar {
-    padding: 0.9rem 2.5rem;
+  .slide.active { opacity: 1; }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .slide-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(10,10,15,0.75) 0%, rgba(10,10,15,0.1) 50%, transparent 100%),
+      linear-gradient(to right, rgba(10,10,15,0.4) 0%, transparent 60%);
+  }
+
+  .slide-content {
+    position: absolute;
+    bottom: 3.5rem;
+    left: 3rem;
+    z-index: 2;
+  }
+
+  .slide-eyebrow {
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    display: block;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s 0.3s ease, transform 0.6s 0.3s ease;
+  }
+
+  .slide.active .slide-eyebrow {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .slide-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--white);
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.7s 0.5s ease, transform 0.7s 0.5s ease;
+  }
+
+  .slide.active .slide-title {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .slide-sub {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: rgba(240,237,230,0.7);
+    margin-top: 0.5rem;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s 0.7s ease, transform 0.6s 0.7s ease;
+  }
+
+  .slide.active .slide-sub {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* slideshow controls */
+  .slide-controls {
+    position: absolute;
+    bottom: 3.5rem;
+    right: 2.5rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 3;
+  }
+
+  .slide-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(240,237,230,0.3);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    border: none;
+    padding: 0;
+  }
+
+  .slide-dot.active {
+    background: var(--gold);
+    transform: scale(1.3);
+  }
+
+  .slide-prev, .slide-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10,10,15,0.4);
+    border: 1px solid var(--border);
+    color: var(--white);
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .slide-prev:hover, .slide-next:hover {
+    background: rgba(201,168,76,0.2);
+    border-color: var(--gold);
+  }
+
+  .slide-prev { left: 1.5rem; }
+  .slide-next { right: 1.5rem; }
+
+  .slide-count {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: rgba(240,237,230,0.5);
+    z-index: 3;
+  }
+
+  /* no featured fallback */
+  .slideshow-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 1rem;
+  }
+
+  .slideshow-placeholder h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    font-weight: 300;
+    color: var(--white);
+    text-align: center;
+    line-height: 1.0;
+  }
+
+  .slideshow-placeholder p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ── INTRO STRIP ── */
+  .intro-strip {
+    padding: 2rem 3rem;
     border-bottom: 1px solid var(--border);
     background: var(--bg2);
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    justify-content: space-between;
+    gap: 2rem;
     flex-wrap: wrap;
   }
 
-  .filter-label {
+  .intro-strip p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    font-style: italic;
+    color: var(--muted);
+    max-width: 65ch;
+    line-height: 1.65;
+  }
+
+  .intro-strip p strong {
+    color: var(--white);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .intro-cta {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--gold);
+    padding: 0.8rem 1.8rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+
+  .intro-cta:hover { background: var(--gold-l); }
+
+  /* ── CATEGORY CARDS ── */
+  .categories-section {
+    padding: 3rem;
+    flex: 1;
+  }
+
+  .section-label {
     font-size: 0.6rem;
     font-weight: 600;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--muted);
-    margin-right: 0.5rem;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+    display: block;
   }
 
-  .filter-btn {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.62rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    background: none;
-    border: 1px solid transparent;
-    padding: 0.32rem 0.85rem;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
-  .filter-btn:hover { color: var(--white); border-color: var(--border); }
-  .filter-btn.active { color: var(--bg); background: var(--gold); border-color: var(--gold); }
-
-  /* ── GALLERY ── */
-  .gallery { padding: 2rem 2.5rem; flex: 1; }
-
-  .gallery-header {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .gallery-title {
+  .section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
+    font-size: clamp(1.4rem, 3vw, 2rem);
     font-weight: 300;
+    margin-bottom: 2rem;
     color: var(--white);
+    line-height: 1.2;
   }
 
-  .gallery-count {
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    color: var(--muted);
+  .groups-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .group-block {}
+
+  .group-label {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 
-  .grid { columns: 3; column-gap: 10px; }
+  .group-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
 
-  @media (max-width: 1200px) { .grid { columns: 2; } }
-  @media (max-width: 700px)  { .grid { columns: 1; } }
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
 
-  .grid-item {
-    break-inside: avoid;
-    margin-bottom: 10px;
+  .cat-card {
+    background: var(--bg2);
     position: relative;
     overflow: hidden;
-    border-radius: 5px;
     cursor: pointer;
-  }
-
-  .grid-item img {
-    width: 100%;
+    text-decoration: none;
     display: block;
-    border-radius: 5px;
-    transition: transform 0.4s ease;
+    aspect-ratio: 4/3;
+    transition: background 0.3s;
   }
 
-  .grid-item:hover img { transform: scale(1.04); }
+  .cat-card:hover { background: #16161f; }
 
-  .grid-item-overlay {
+  .cat-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.6;
+    transition: opacity 0.4s, transform 0.4s;
+  }
+
+  .cat-card:hover img {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+
+  .cat-card-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(10,10,15,0.88) 0%, transparent 55%);
-    opacity: 0;
-    transition: opacity 0.3s;
-    border-radius: 5px;
+    background: linear-gradient(to top, rgba(10,10,15,0.85) 0%, transparent 60%);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 1rem;
+    padding: 1.2rem;
   }
 
-  .grid-item:hover .grid-item-overlay { opacity: 1; }
+  .cat-card-label {
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
 
-  .overlay-title {
+  .cat-card-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 400;
     color: var(--white);
     line-height: 1.2;
   }
 
-  .overlay-cat {
-    font-size: 0.58rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-top: 0.25rem;
+  .cat-card-count {
+    font-size: 0.62rem;
+    color: rgba(240,237,230,0.5);
+    margin-top: 0.3rem;
+    letter-spacing: 0.05em;
   }
 
-  /* ── STATES ── */
-  .state-msg {
+  /* cat card with no image */
+  .cat-card.no-img {
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.2rem;
+  }
+
+  .cat-card.no-img .cat-card-overlay {
+    background: none;
+    position: relative;
+    inset: auto;
+  }
+
+  /* ── LOADING ── */
+  .loading-msg {
     text-align: center;
-    padding: 5rem 2rem;
+    padding: 5rem;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-style: italic;
     color: var(--muted);
-    display: none;
   }
-
-  .state-msg.visible { display: block; }
-
-  /* ── LIGHTBOX ── */
-  .lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(10,10,15,0.96);
-    z-index: 100;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-  }
-
-  .lightbox.open { display: flex; }
-
-  .lightbox-inner {
-    max-width: 90vw;
-    max-height: 90vh;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .lightbox-inner img {
-    max-width: 100%;
-    max-height: 82vh;
-    object-fit: contain;
-    border-radius: 4px;
-  }
-
-  .lightbox-close {
-    position: absolute;
-    top: -2.5rem;
-    right: 0;
-    color: var(--muted);
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    cursor: pointer;
-    background: none;
-    border: none;
-    font-family: 'Montserrat', sans-serif;
-    transition: color 0.2s;
-  }
-
-  .lightbox-close:hover { color: var(--white); }
-
-  .lightbox-caption { margin-top: 1rem; text-align: center; }
-
-  .lightbox-caption .lb-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    color: var(--white);
-  }
-
-  .lightbox-caption .lb-cat {
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-top: 0.3rem;
-  }
-
-  .lightbox-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 1.2rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.2s, border-color 0.2s;
-  }
-
-  .lightbox-nav:hover { color: var(--gold); border-color: var(--gold); }
-  .lightbox-prev { left: -3.5rem; }
-  .lightbox-next { right: -3.5rem; }
 
   /* ── MOBILE ── */
   .mobile-toggle {
@@ -407,13 +542,20 @@
     font-family: 'Montserrat', sans-serif;
   }
 
+  @media (max-width: 900px) {
+    .categories-section { padding: 2rem 1.5rem; }
+    .intro-strip { padding: 1.5rem; }
+  }
+
   @media (max-width: 750px) {
     .mobile-toggle { display: block; }
     .sidebar { position: fixed; left: -100%; transition: left 0.3s ease; height: 100vh; z-index: 150; }
     .sidebar.open { left: 0; }
-    .topbar, .filter-bar, .gallery { padding-left: 1.2rem; padding-right: 1.2rem; }
-    .lightbox-prev { left: -0.5rem; }
-    .lightbox-next { right: -0.5rem; }
+    .slide-content { left: 1.5rem; bottom: 2.5rem; }
+    .slide-prev { left: 0.5rem; }
+    .slide-next { right: 0.5rem; }
+    .intro-strip { flex-direction: column; align-items: flex-start; }
+    .intro-cta { width: 100%; text-align: center; }
   }
 </style>
 </head>
@@ -421,6 +563,7 @@
 
 <button class="mobile-toggle" onclick="toggleSidebar()">&#9776; Menu</button>
 
+<!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-brand">
     <span class="brand-name">Craig Selby</span>
@@ -437,68 +580,62 @@
   </div>
 </aside>
 
+<!-- MAIN -->
 <main class="main">
-  <div class="topbar">
-    <p class="topbar-intro">
-      As I continue to expand my portfolio, I'm keen to collaborate on new projects.
-      If you're organising an event or seeking a photographer for your special occasion,
-      <strong>I'd be delighted to hear from you.</strong>
+
+  <!-- SLIDESHOW -->
+  <div class="slideshow" id="slideshow">
+    <div class="loading-msg" id="slideshowLoading">Loading...</div>
+    <div class="slide-count" id="slideCount"></div>
+    <button class="slide-prev" onclick="slideNav(-1)">&#8249;</button>
+    <button class="slide-next" onclick="slideNav(1)">&#8250;</button>
+    <div class="slide-controls" id="slideDots"></div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro-strip">
+    <p>
+      Live music, wildlife, landscapes and sports photography from South Wales.
+      <strong>Available for events, venues and collaborations.</strong>
     </p>
+    <a href="work-with-me.html" class="intro-cta">Work With Me</a>
   </div>
 
-  <div class="filter-bar" id="filterBar">
-    <span class="filter-label">Filter</span>
-    <button class="filter-btn active" onclick="filterBy('all','all',this)">All</button>
+  <!-- CATEGORIES -->
+  <div class="categories-section" id="categoriesSection">
+    <div class="loading-msg" id="catsLoading">Loading galleries...</div>
   </div>
 
-  <div class="gallery">
-    <div class="gallery-header">
-      <span class="gallery-title" id="galleryTitle">All Photos</span>
-      <span class="gallery-count" id="galleryCount"></span>
-    </div>
-    <div class="grid" id="grid"></div>
-    <p class="state-msg visible" id="loadingMsg">Loading gallery...</p>
-    <p class="state-msg" id="emptyMsg">No images in this category yet.</p>
-  </div>
 </main>
 
-<div class="lightbox" id="lightbox" onclick="lbBgClick(event)">
-  <div class="lightbox-inner">
-    <button class="lightbox-close" onclick="closeLightbox()">&#10005; Close</button>
-    <button class="lightbox-nav lightbox-prev" onclick="lbNav(-1)">&#8249;</button>
-    <button class="lightbox-nav lightbox-next" onclick="lbNav(1)">&#8250;</button>
-    <img src="" alt="" id="lbImg">
-    <div class="lightbox-caption">
-      <p class="lb-title" id="lbTitle"></p>
-      <p class="lb-cat" id="lbCat"></p>
-    </div>
-  </div>
-</div>
-
 <script>
-  var allImages = [];
-  var visibleImages = [];
-  var currentLbIndex = 0;
+  var manifest = { groups: [], images: [] };
+  var slides = [];
+  var currentSlide = 0;
+  var slideTimer = null;
 
-  async function loadManifest() {
+  // ── LOAD ──
+  async function init() {
     try {
       var res = await fetch('images.json?v=' + Date.now());
-      var data = await res.json();
-      allImages = data.images || [];
-      buildNav(data.groups || []);
-      buildFilterBar(data.groups || []);
-      renderGallery('all', 'all');
+      manifest = await res.json();
+      manifest.images = manifest.images || [];
+      manifest.groups = manifest.groups || [];
     } catch(e) {
-      document.getElementById('loadingMsg').textContent = 'Gallery unavailable — please try again shortly.';
-    } finally {
-      document.getElementById('loadingMsg').classList.remove('visible');
+      document.getElementById('slideshowLoading').textContent = 'Gallery unavailable.';
+      document.getElementById('catsLoading').textContent = '';
+      return;
     }
+    buildNav();
+    buildSlideshow();
+    buildCategories();
   }
 
-  function buildNav(groups) {
+  // ── SIDEBAR NAV ──
+  function buildNav() {
     var nav = document.getElementById('sidebarNav');
     nav.innerHTML = '';
-    groups.forEach(function(group) {
+    manifest.groups.forEach(function(group) {
       var section = document.createElement('div');
       section.className = 'nav-section';
       var label = document.createElement('span');
@@ -506,122 +643,189 @@
       label.textContent = group.label;
       section.appendChild(label);
       group.categories.forEach(function(cat) {
-        var btn = document.createElement('button');
-        btn.className = 'nav-link';
-        btn.textContent = cat.label;
-        btn.onclick = function() {
-          filterBy('category', cat.slug, btn);
-          if (window.innerWidth <= 750) document.getElementById('sidebar').classList.remove('open');
-        };
-        section.appendChild(btn);
+        var a = document.createElement('a');
+        a.className = 'nav-link';
+        a.textContent = cat.label;
+        a.href = 'gallery.html?cat=' + cat.slug;
+        section.appendChild(a);
       });
       nav.appendChild(section);
     });
   }
 
-  function buildFilterBar(groups) {
-    var bar = document.getElementById('filterBar');
-    bar.querySelectorAll('.filter-btn:not(:first-of-type)').forEach(function(b) { b.remove(); });
-    groups.forEach(function(group) {
-      var btn = document.createElement('button');
-      btn.className = 'filter-btn';
-      btn.textContent = group.label;
-      btn.onclick = function() { filterBy('group', group.slug, btn); };
-      bar.appendChild(btn);
-    });
-  }
+  // ── SLIDESHOW ──
+  function buildSlideshow() {
+    var ss = document.getElementById('slideshow');
+    document.getElementById('slideshowLoading').remove();
 
-  function filterBy(type, value, btn) {
-    document.querySelectorAll('.nav-link').forEach(function(l) { l.classList.remove('active'); });
-    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
-    if (btn) btn.classList.add('active');
-    renderGallery(type, value);
-  }
+    slides = manifest.images.filter(function(img) { return img.featured; });
 
-  function renderGallery(type, value) {
-    var grid = document.getElementById('grid');
-    grid.innerHTML = '';
+    if (slides.length === 0) {
+      ss.innerHTML = '<div class="slideshow-placeholder"><h1>Craig Selby</h1><p>CS Photography &nbsp;&middot;&nbsp; Port Talbot, Wales</p></div>';
+      return;
+    }
 
-    visibleImages = allImages.filter(function(img) {
-      if (type === 'all') return true;
-      if (type === 'group') return img.group === value;
-      if (type === 'category') return img.category === value;
-      return true;
-    });
-
-    document.getElementById('emptyMsg').classList.toggle('visible', visibleImages.length === 0);
-    document.getElementById('galleryCount').textContent = visibleImages.length > 0 ? visibleImages.length + ' photos' : '';
-
-    var titleEl = document.getElementById('galleryTitle');
-    if (type === 'all') titleEl.textContent = 'All Photos';
-    else if (type === 'group') titleEl.textContent = value.charAt(0).toUpperCase() + value.slice(1);
-    else titleEl.textContent = visibleImages[0] ? visibleImages[0].categoryLabel : value;
-
-    visibleImages.forEach(function(img, idx) {
-      var item = document.createElement('div');
-      item.className = 'grid-item';
-      item.onclick = function() { openLightbox(idx); };
+    // build slides
+    slides.forEach(function(img, idx) {
+      var div = document.createElement('div');
+      div.className = 'slide' + (idx === 0 ? ' active' : '');
 
       var image = document.createElement('img');
       image.src = img.src;
       image.alt = img.title;
-      image.loading = 'lazy';
+      if (idx > 0) image.loading = 'lazy';
 
       var overlay = document.createElement('div');
-      overlay.className = 'grid-item-overlay';
-      overlay.innerHTML = '<span class="overlay-title">' + img.title + '</span><span class="overlay-cat">' + img.categoryLabel + '</span>';
+      overlay.className = 'slide-overlay';
 
-      item.appendChild(image);
-      item.appendChild(overlay);
-      grid.appendChild(item);
+      var content = document.createElement('div');
+      content.className = 'slide-content';
+      content.innerHTML =
+        '<span class="slide-eyebrow">' + img.categoryLabel + '</span>' +
+        '<div class="slide-title">Craig Selby</div>' +
+        '<div class="slide-sub">' + img.title + '</div>';
+
+      div.appendChild(image);
+      div.appendChild(overlay);
+      div.appendChild(content);
+      ss.insertBefore(div, ss.querySelector('.slide-count'));
     });
+
+    // dots
+    var dots = document.getElementById('slideDots');
+    slides.forEach(function(_, idx) {
+      var dot = document.createElement('button');
+      dot.className = 'slide-dot' + (idx === 0 ? ' active' : '');
+      dot.onclick = function() { goToSlide(idx); };
+      dots.appendChild(dot);
+    });
+
+    updateSlideCount();
+    startTimer();
   }
 
-  function openLightbox(idx) {
-    currentLbIndex = idx;
-    updateLightbox();
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
+  function goToSlide(idx) {
+    var allSlides = document.querySelectorAll('.slide');
+    var allDots = document.querySelectorAll('.slide-dot');
+    allSlides[currentSlide].classList.remove('active');
+    if (allDots[currentSlide]) allDots[currentSlide].classList.remove('active');
+    currentSlide = (idx + slides.length) % slides.length;
+    allSlides[currentSlide].classList.add('active');
+    if (allDots[currentSlide]) allDots[currentSlide].classList.add('active');
+    updateSlideCount();
+    resetTimer();
   }
 
-  function updateLightbox() {
-    var img = visibleImages[currentLbIndex];
-    document.getElementById('lbImg').src = img.src;
-    document.getElementById('lbImg').alt = img.title;
-    document.getElementById('lbTitle').textContent = img.title;
-    document.getElementById('lbCat').textContent = img.categoryLabel;
+  function slideNav(dir) { goToSlide(currentSlide + dir); }
+
+  function updateSlideCount() {
+    var el = document.getElementById('slideCount');
+    if (el && slides.length > 1) {
+      el.textContent = (currentSlide + 1) + ' / ' + slides.length;
+    }
   }
 
-  function lbNav(dir) {
-    currentLbIndex = (currentLbIndex + dir + visibleImages.length) % visibleImages.length;
-    updateLightbox();
+  function startTimer() {
+    if (slides.length <= 1) return;
+    slideTimer = setInterval(function() { goToSlide(currentSlide + 1); }, 5000);
   }
 
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
+  function resetTimer() {
+    clearInterval(slideTimer);
+    startTimer();
   }
 
-  function lbBgClick(e) {
-    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  // ── CATEGORY CARDS ──
+  function buildCategories() {
+    var section = document.getElementById('categoriesSection');
+    section.innerHTML = '';
+
+    if (manifest.groups.length === 0) {
+      section.innerHTML = '<p style="color:var(--muted);font-style:italic;text-align:center;padding:3rem">No galleries yet — upload your first images to get started.</p>';
+      return;
+    }
+
+    var labelEl = document.createElement('span');
+    labelEl.className = 'section-label';
+    labelEl.textContent = 'Browse the work';
+    section.appendChild(labelEl);
+
+    var titleEl = document.createElement('h2');
+    titleEl.className = 'section-title';
+    titleEl.textContent = 'Explore the galleries';
+    section.appendChild(titleEl);
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'groups-wrapper';
+
+    manifest.groups.forEach(function(group) {
+      var block = document.createElement('div');
+      block.className = 'group-block';
+
+      var groupLabel = document.createElement('div');
+      groupLabel.className = 'group-label';
+      groupLabel.textContent = group.label;
+      block.appendChild(groupLabel);
+
+      var grid = document.createElement('div');
+      grid.className = 'cat-grid';
+
+      group.categories.forEach(function(cat) {
+        var catImages = manifest.images.filter(function(img) {
+          return img.category === cat.slug;
+        });
+        var count = catImages.length;
+
+        // pick cover image — use featured if available, else first
+        var cover = catImages.find(function(img) { return img.featured; }) || catImages[0];
+
+        var a = document.createElement('a');
+        a.className = 'cat-card' + (cover ? '' : ' no-img');
+        a.href = 'gallery.html?cat=' + cat.slug;
+
+        if (cover) {
+          var img = document.createElement('img');
+          img.src = cover.src;
+          img.alt = cat.label;
+          img.loading = 'lazy';
+          a.appendChild(img);
+        }
+
+        var overlay = document.createElement('div');
+        overlay.className = 'cat-card-overlay';
+        overlay.innerHTML =
+          '<span class="cat-card-label">' + group.label + '</span>' +
+          '<span class="cat-card-title">' + cat.label + '</span>' +
+          '<span class="cat-card-count">' + count + ' photo' + (count !== 1 ? 's' : '') + '</span>';
+
+        a.appendChild(overlay);
+        grid.appendChild(a);
+      });
+
+      block.appendChild(grid);
+      wrapper.appendChild(block);
+    });
+
+    section.appendChild(wrapper);
   }
 
+  // ── MOBILE ──
   function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('open');
   }
 
-  document.addEventListener('keydown', function(e) {
-    if (!document.getElementById('lightbox').classList.contains('open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') lbNav(1);
-    if (e.key === 'ArrowLeft') lbNav(-1);
-  });
-
-  /* ── IMAGE PROTECTION ── */
+  // ── PROTECTION ──
   document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
   document.addEventListener('dragstart', function(e) { e.preventDefault(); });
 
-  loadManifest();
+  // ── KEYBOARD ──
+  document.addEventListener('keydown', function(e) {
+    if (slides.length === 0) return;
+    if (e.key === 'ArrowRight') slideNav(1);
+    if (e.key === 'ArrowLeft') slideNav(-1);
+  });
+
+  init();
 </script>
 
 </body>
