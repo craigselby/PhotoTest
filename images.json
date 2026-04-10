@@ -11,6 +11,10 @@
         {
           "slug": "something-fun",
           "label": "Something Fun"
+        },
+        {
+          "slug": "fun2",
+          "label": "Fun2"
         }
       ]
     },
@@ -39,448 +43,512 @@
       "title": "20250530 Ax0A2582",
       "category": "gnoll-test",
       "group": "general",
-      "categoryLabel": "Gnoll Test"
+      "categoryLabel": "Gnoll Test",
+      "featured": false
     },
     {
       "src": "images/general/Gnoll test/20250530-AX0A2590.jpg",
       "title": "20250530 Ax0A2590",
       "category": "gnoll-test",
       "group": "general",
-      "categoryLabel": "Gnoll Test"
+      "categoryLabel": "Gnoll Test",
+      "featured": false
     },
     {
       "src": "images/general/Gnoll test/20250530-AX0A2596.jpg",
       "title": "20250530 Ax0A2596",
       "category": "gnoll-test",
       "group": "general",
-      "categoryLabel": "Gnoll Test"
+      "categoryLabel": "Gnoll Test",
+      "featured": false
     },
     {
       "src": "images/general/Gnoll test/20250530-AX0A2605.jpg",
       "title": "20250530 Ax0A2605",
       "category": "gnoll-test",
       "group": "general",
-      "categoryLabel": "Gnoll Test"
+      "categoryLabel": "Gnoll Test",
+      "featured": false
     },
     {
       "src": "images/general/Gnoll test/20250530-AX0A2609.jpg",
       "title": "20250530 Ax0A2609",
       "category": "gnoll-test",
       "group": "general",
-      "categoryLabel": "Gnoll Test"
+      "categoryLabel": "Gnoll Test",
+      "featured": false
     },
     {
       "src": "images/general/Gnoll test/20250530-AX0A2616.jpg",
       "title": "20250530 Ax0A2616",
       "category": "gnoll-test",
       "group": "general",
-      "categoryLabel": "Gnoll Test"
+      "categoryLabel": "Gnoll Test",
+      "featured": false
     },
     {
       "src": "images/general/Gnoll test/20250530-AX0A2636.jpg",
       "title": "20250530 Ax0A2636",
       "category": "gnoll-test",
       "group": "general",
-      "categoryLabel": "Gnoll Test"
-    },
-    {
-      "src": "images/general/Something fun/Header-1.jpg",
-      "title": "Header 1",
-      "category": "something-fun",
-      "group": "general",
-      "categoryLabel": "Something Fun"
+      "categoryLabel": "Gnoll Test",
+      "featured": false
     },
     {
       "src": "images/general/Something fun/Header-2.jpg",
       "title": "Header 2",
       "category": "something-fun",
       "group": "general",
-      "categoryLabel": "Something Fun"
+      "categoryLabel": "Something Fun",
+      "featured": true
     },
     {
       "src": "images/general/Something fun/Header-3.jpg",
       "title": "Header 3",
       "category": "something-fun",
       "group": "general",
-      "categoryLabel": "Something Fun"
+      "categoryLabel": "Something Fun",
+      "featured": true
     },
     {
       "src": "images/general/Something fun/Header-4.jpg",
       "title": "Header 4",
       "category": "something-fun",
       "group": "general",
-      "categoryLabel": "Something Fun"
+      "categoryLabel": "Something Fun",
+      "featured": true
+    },
+    {
+      "src": "images/general/fun2/Header-1.jpg",
+      "title": "Header 1",
+      "category": "fun2",
+      "group": "general",
+      "categoryLabel": "Fun2",
+      "featured": true
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-1.jpg",
       "title": "M2Tm   House Of Hosts 1",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-10.jpg",
       "title": "M2Tm   House Of Hosts 10",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-11.jpg",
       "title": "M2Tm   House Of Hosts 11",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-12.jpg",
       "title": "M2Tm   House Of Hosts 12",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-13.jpg",
       "title": "M2Tm   House Of Hosts 13",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-14.jpg",
       "title": "M2Tm   House Of Hosts 14",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-15.jpg",
       "title": "M2Tm   House Of Hosts 15",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-16.jpg",
       "title": "M2Tm   House Of Hosts 16",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-17.jpg",
       "title": "M2Tm   House Of Hosts 17",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-18.jpg",
       "title": "M2Tm   House Of Hosts 18",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-19.jpg",
       "title": "M2Tm   House Of Hosts 19",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-2.jpg",
       "title": "M2Tm   House Of Hosts 2",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-20.jpg",
       "title": "M2Tm   House Of Hosts 20",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-21.jpg",
       "title": "M2Tm   House Of Hosts 21",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-22.jpg",
       "title": "M2Tm   House Of Hosts 22",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-23.jpg",
       "title": "M2Tm   House Of Hosts 23",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-24.jpg",
       "title": "M2Tm   House Of Hosts 24",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-25.jpg",
       "title": "M2Tm   House Of Hosts 25",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-26.jpg",
       "title": "M2Tm   House Of Hosts 26",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-27.jpg",
       "title": "M2Tm   House Of Hosts 27",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-28.jpg",
       "title": "M2Tm   House Of Hosts 28",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-29.jpg",
       "title": "M2Tm   House Of Hosts 29",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-3.jpg",
       "title": "M2Tm   House Of Hosts 3",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-30.jpg",
       "title": "M2Tm   House Of Hosts 30",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-31.jpg",
       "title": "M2Tm   House Of Hosts 31",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-32.jpg",
       "title": "M2Tm   House Of Hosts 32",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-33.jpg",
       "title": "M2Tm   House Of Hosts 33",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-4.jpg",
       "title": "M2Tm   House Of Hosts 4",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-5.jpg",
       "title": "M2Tm   House Of Hosts 5",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-7.jpg",
       "title": "M2Tm   House Of Hosts 7",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-8.jpg",
       "title": "M2Tm   House Of Hosts 8",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - House Of Hosts/M2TM - House Of Hosts-9.jpg",
       "title": "M2Tm   House Of Hosts 9",
       "category": "m2tm---house-of-hosts",
       "group": "music",
-      "categoryLabel": "M2tm House Of Hosts"
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - Inscape/M2TM - Inscape-1.jpg",
       "title": "M2Tm   Inscape 1",
       "category": "m2tm---inscape",
       "group": "music",
-      "categoryLabel": "M2tm Inscape"
+      "categoryLabel": "M2tm Inscape",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - Inscape/M2TM - Inscape-10.jpg",
       "title": "M2Tm   Inscape 10",
       "category": "m2tm---inscape",
       "group": "music",
-      "categoryLabel": "M2tm Inscape"
+      "categoryLabel": "M2tm Inscape",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - Inscape/M2TM - Inscape-11.jpg",
       "title": "M2Tm   Inscape 11",
       "category": "m2tm---inscape",
       "group": "music",
-      "categoryLabel": "M2tm Inscape"
+      "categoryLabel": "M2tm Inscape",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - Inscape/M2TM - Inscape-2.jpg",
       "title": "M2Tm   Inscape 2",
       "category": "m2tm---inscape",
       "group": "music",
-      "categoryLabel": "M2tm Inscape"
+      "categoryLabel": "M2tm Inscape",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - Inscape/M2TM - Inscape-3.jpg",
       "title": "M2Tm   Inscape 3",
       "category": "m2tm---inscape",
       "group": "music",
-      "categoryLabel": "M2tm Inscape"
+      "categoryLabel": "M2tm Inscape",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - Inscape/M2TM - Inscape-4.jpg",
       "title": "M2Tm   Inscape 4",
       "category": "m2tm---inscape",
       "group": "music",
-      "categoryLabel": "M2tm Inscape"
+      "categoryLabel": "M2tm Inscape",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - Inscape/M2TM - Inscape-5.jpg",
       "title": "M2Tm   Inscape 5",
       "category": "m2tm---inscape",
       "group": "music",
-      "categoryLabel": "M2tm Inscape"
+      "categoryLabel": "M2tm Inscape",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - Inscape/M2TM - Inscape-6.jpg",
       "title": "M2Tm   Inscape 6",
       "category": "m2tm---inscape",
       "group": "music",
-      "categoryLabel": "M2tm Inscape"
+      "categoryLabel": "M2tm Inscape",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - Inscape/M2TM - Inscape-7.jpg",
       "title": "M2Tm   Inscape 7",
       "category": "m2tm---inscape",
       "group": "music",
-      "categoryLabel": "M2tm Inscape"
+      "categoryLabel": "M2tm Inscape",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - Inscape/M2TM - Inscape-8.jpg",
       "title": "M2Tm   Inscape 8",
       "category": "m2tm---inscape",
       "group": "music",
-      "categoryLabel": "M2tm Inscape"
+      "categoryLabel": "M2tm Inscape",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - Inscape/M2TM - Inscape-9.jpg",
       "title": "M2Tm   Inscape 9",
       "category": "m2tm---inscape",
       "group": "music",
-      "categoryLabel": "M2tm Inscape"
+      "categoryLabel": "M2tm Inscape",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - White Leather/M2TM - White Leather-1.jpg",
       "title": "M2Tm   White Leather 1",
       "category": "m2tm---white-leather",
       "group": "music",
-      "categoryLabel": "M2tm White Leather"
+      "categoryLabel": "M2tm White Leather",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - White Leather/M2TM - White Leather-10.jpg",
       "title": "M2Tm   White Leather 10",
       "category": "m2tm---white-leather",
       "group": "music",
-      "categoryLabel": "M2tm White Leather"
+      "categoryLabel": "M2tm White Leather",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - White Leather/M2TM - White Leather-2.jpg",
       "title": "M2Tm   White Leather 2",
       "category": "m2tm---white-leather",
       "group": "music",
-      "categoryLabel": "M2tm White Leather"
+      "categoryLabel": "M2tm White Leather",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - White Leather/M2TM - White Leather-3.jpg",
       "title": "M2Tm   White Leather 3",
       "category": "m2tm---white-leather",
       "group": "music",
-      "categoryLabel": "M2tm White Leather"
+      "categoryLabel": "M2tm White Leather",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - White Leather/M2TM - White Leather-4.jpg",
       "title": "M2Tm   White Leather 4",
       "category": "m2tm---white-leather",
       "group": "music",
-      "categoryLabel": "M2tm White Leather"
+      "categoryLabel": "M2tm White Leather",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - White Leather/M2TM - White Leather-5.jpg",
       "title": "M2Tm   White Leather 5",
       "category": "m2tm---white-leather",
       "group": "music",
-      "categoryLabel": "M2tm White Leather"
+      "categoryLabel": "M2tm White Leather",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - White Leather/M2TM - White Leather-6.jpg",
       "title": "M2Tm   White Leather 6",
       "category": "m2tm---white-leather",
       "group": "music",
-      "categoryLabel": "M2tm White Leather"
+      "categoryLabel": "M2tm White Leather",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - White Leather/M2TM - White Leather-7.jpg",
       "title": "M2Tm   White Leather 7",
       "category": "m2tm---white-leather",
       "group": "music",
-      "categoryLabel": "M2tm White Leather"
+      "categoryLabel": "M2tm White Leather",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - White Leather/M2TM - White Leather-8.jpg",
       "title": "M2Tm   White Leather 8",
       "category": "m2tm---white-leather",
       "group": "music",
-      "categoryLabel": "M2tm White Leather"
+      "categoryLabel": "M2tm White Leather",
+      "featured": false
     },
     {
       "src": "images/music/M2TM - White Leather/M2TM - White Leather-9.jpg",
       "title": "M2Tm   White Leather 9",
       "category": "m2tm---white-leather",
       "group": "music",
-      "categoryLabel": "M2tm White Leather"
+      "categoryLabel": "M2tm White Leather",
+      "featured": false
     }
   ]
 }
