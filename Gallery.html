@@ -92,7 +92,7 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif
   </div>
   <nav id="sidebarNav"></nav>
   <div class="sidebar-footer">
-    <a href="mailto:craig@craigselby.co.uk" class="footer-link">Contact</a>
+    <a href="/cdn-cgi/l/email-protection#f89b8a99919fb89b8a99919f8b9d949a81d69b97d68d93" class="footer-link">Contact</a>
     <div class="social-row">
       <a href="https://instagram.com/craigselby" class="social-link" target="_blank">Instagram</a>
       <a href="work-with-me.html" class="social-link">Work With Me</a>
@@ -131,7 +131,7 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif
     </div>
   </div>
 </div>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var allImgs=[];
 var visible=[];
 var lbIdx=0;
@@ -148,6 +148,8 @@ async function load(){
     var cat=getParam('cat');
     var grp=getParam('group');
     if(cat){
+      // hide filter bar — not useful when viewing a specific category
+      document.getElementById('filterBar').style.display='none';
       var btn=document.querySelector('[data-cat="'+cat+'"]');
       filterBy('category',cat,btn);
     } else if(grp){
@@ -180,6 +182,7 @@ function buildNav(groups){
       btn.dataset.cat=c.slug;
       btn.onclick=function(){
         filterBy('category',c.slug,btn);
+        document.getElementById('filterBar').style.display='none';
         history.replaceState(null,'','?cat='+c.slug);
         if(window.innerWidth<=750) document.getElementById('sidebar').classList.remove('open');
       };
@@ -197,7 +200,11 @@ function buildFilterBar(groups){
     btn.className='filter-btn';
     btn.textContent=g.label;
     btn.dataset.grp=g.slug;
-    btn.onclick=function(){filterBy('group',g.slug,btn);history.replaceState(null,'','?group='+g.slug);};
+    btn.onclick=function(){
+      document.getElementById('filterBar').style.display='';
+      filterBy('group',g.slug,btn);
+      history.replaceState(null,'','?group='+g.slug);
+    };
     bar.appendChild(btn);
   });
 }
@@ -259,13 +266,4 @@ function toggleSidebar(){document.getElementById('sidebar').classList.toggle('op
 document.addEventListener('contextmenu',function(e){e.preventDefault();});
 document.addEventListener('dragstart',function(e){e.preventDefault();});
 document.addEventListener('keydown',function(e){
-  if(!document.getElementById('lightbox').classList.contains('open')) return;
-  if(e.key==='Escape') closeLb();
-  if(e.key==='ArrowRight') lbNav(1);
-  if(e.key==='ArrowLeft') lbNav(-1);
-});
-
-load();
-</script>
-</body>
-</html>
+  if(!document.getElementById('lightbox').classList.contains('open')) re
