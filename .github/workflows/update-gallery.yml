@@ -1,0 +1,125 @@
+name: Update Gallery Manifest
+
+on:
+  push:
+    paths:
+      - 'images/**'
+
+jobs:
+  update-manifest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate image manifest
+        run: |
+          python3 << 'EOF'
+          import os
+          import json
+
+          IMAGE_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.webp', '.gif'}
+          GROUPS = ['general', 'music', 'sports']
+
+          def slugify(name):
+              return name.lower().replace(' ', '-')
+
+          def labelify(slug):
+              replacements = {
+                  'm2m': 'Metal 2 The Masses —',
+                  'ffltech': 'FFLtech',
+                  'gv70': 'gv70',
+                  'ngpw': 'NGPW',
+              }
+              words = slug.replace('-', ' ').split()
+              result = []
+              skip_next = False
+              for i, word in enumerate(words):
+                  if skip_next:
+                      skip_next = False
+                      continue
+                  low = word.lower()
+                  if low in replacements:
+                      result.append(replacements[low])
+                  else:
+                      result.append(word.capitalize())
+              return ' '.join(result)
+
+          manifest = {
+              "groups": [],
+              "images": []
+          }
+
+          groups_seen = {}
+
+          images_root = 'images'
+
+          if not os.path.exists(images_root):
+              print("No images folder found — creating empty manifest")
+              with open('images.json', 'w') as f:
+                  json.dump(manifest, f, indent=2)
+              exit()
+
+          for group in GROUPS:
+              group_path = os.path.join(images_root, group)
+              if not os.path.isdir(group_path):
+                  continue
+
+              categories = []
+
+              for category in sorted(os.listdir(group_path)):
+                  cat_path = os.path.join(group_path, category)
+                  if not os.path.isdir(cat_path):
+                      continue
+
+                  image_files = []
+                  for fname in sorted(os.listdir(cat_path)):
+                      ext = os.path.splitext(fname)[1].lower()
+                      if ext in IMAGE_EXTENSIONS:
+                          image_files.append(fname)
+
+                  if not image_files:
+                      continue
+
+                  cat_slug = slugify(category)
+                  cat_label = labelify(category)
+
+                  categories.append({
+                      "slug": cat_slug,
+                      "label": cat_label
+                  })
+
+                  for fname in image_files:
+                      title = os.path.splitext(fname)[0].replace('-', ' ').replace('_', ' ').title()
+                      manifest["images"].append({
+                          "src": f"images/{group}/{category}/{fname}",
+                          "title": title,
+                          "category": cat_slug,
+                          "group": group,
+                          "categoryLabel": cat_label
+                      })
+
+              if categories:
+                  manifest["groups"].append({
+                      "slug": group,
+                      "label": group.capitalize(),
+                      "categories": categories
+                  })
+
+          with open('images.json', 'w') as f:
+              json.dump(manifest, f, indent=2)
+
+          total = len(manifest["images"])
+          print(f"Manifest generated — {total} images across {len(manifest['groups'])} groups")
+          EOF
+
+      - name: Commit manifest
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add images.json
+          git diff --staged --quiet || git commit -m "Auto-update gallery manifest [skip ci]"
+          git push
