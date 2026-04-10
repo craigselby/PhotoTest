@@ -3,17 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery — CS Photography</title>
+<title>Craig Selby — CS Photography</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:     #0a0a0f;
-    --bg2:    #13131c;
-    --gold:   #c9a84c;
-    --white:  #f0ede6;
-    --muted:  #888880;
+    --bg:    #0a0a0f;
+    --bg2:   #13131c;
+    --bg3:   #16161f;
+    --gold:  #c9a84c;
+    --gold-dim: rgba(201,168,76,0.12);
+    --white: #f0ede6;
+    --muted: #888880;
     --border: rgba(201,168,76,0.15);
     --sidebar: 270px;
   }
@@ -31,6 +33,7 @@
     overflow-x: hidden;
   }
 
+  /* ── IMAGE PROTECTION ── */
   img {
     pointer-events: none;
     user-select: none;
@@ -68,7 +71,6 @@
     line-height: 1.1;
     display: block;
     margin-bottom: 0.3rem;
-    text-decoration: none;
   }
 
   .brand-sub {
@@ -80,7 +82,8 @@
   }
 
   .gold-rule {
-    width: 40px; height: 1px;
+    width: 40px;
+    height: 1px;
     background: var(--gold);
     opacity: 0.4;
     margin: 0.8rem 0 0;
@@ -112,7 +115,6 @@
     width: 100%;
     font-family: 'Montserrat', sans-serif;
     line-height: 1.4;
-    text-decoration: none;
   }
 
   .nav-link:hover { color: var(--white); padding-left: 0.4rem; }
@@ -144,6 +146,7 @@
 
   .social-link {
     font-size: 0.7rem;
+    font-weight: 400;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--muted);
@@ -156,45 +159,16 @@
   /* ── MAIN ── */
   .main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
 
-  /* ── TOPBAR ── */
-  .topbar {
-    padding: 1.8rem 2.5rem;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .back-link {
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.2s;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .back-link:hover { color: var(--gold); }
-
-  .back-link::before { content: '‹ '; }
-
-  .topbar-divider {
-    width: 1px;
-    height: 1rem;
-    background: var(--border);
-    flex-shrink: 0;
-  }
+  .topbar { padding: 1.8rem 2.5rem; border-bottom: 1px solid var(--border); }
 
   .topbar-intro {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+    font-size: clamp(0.95rem, 1.5vw, 1.15rem);
     font-weight: 300;
     font-style: italic;
     color: var(--muted);
-    line-height: 1.5;
+    max-width: 72ch;
+    line-height: 1.65;
   }
 
   .topbar-intro strong { color: var(--white); font-style: normal; font-weight: 400; }
@@ -447,10 +421,9 @@
 
 <button class="mobile-toggle" onclick="toggleSidebar()">&#9776; Menu</button>
 
-<!-- SIDEBAR -->
 <aside class="sidebar" id="sidebar">
   <div class="sidebar-brand">
-    <a href="index.html" class="brand-name">Craig Selby</a>
+    <span class="brand-name">Craig Selby</span>
     <span class="brand-sub">CS Photography</span>
     <div class="gold-rule"></div>
   </div>
@@ -464,14 +437,11 @@
   </div>
 </aside>
 
-<!-- MAIN -->
 <main class="main">
-
   <div class="topbar">
-    <a href="index.html" class="back-link">Home</a>
-    <div class="topbar-divider"></div>
     <p class="topbar-intro">
-      If you're organising an event or seeking a photographer,
+      As I continue to expand my portfolio, I'm keen to collaborate on new projects.
+      If you're organising an event or seeking a photographer for your special occasion,
       <strong>I'd be delighted to hear from you.</strong>
     </p>
   </div>
@@ -490,10 +460,8 @@
     <p class="state-msg visible" id="loadingMsg">Loading gallery...</p>
     <p class="state-msg" id="emptyMsg">No images in this category yet.</p>
   </div>
-
 </main>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="lbBgClick(event)">
   <div class="lightbox-inner">
     <button class="lightbox-close" onclick="closeLightbox()">&#10005; Close</button>
@@ -512,13 +480,6 @@
   var visibleImages = [];
   var currentLbIndex = 0;
 
-  // ── READ URL PARAMS ──
-  function getUrlParam(key) {
-    var params = new URLSearchParams(window.location.search);
-    return params.get(key);
-  }
-
-  // ── LOAD MANIFEST ──
   async function loadManifest() {
     try {
       var res = await fetch('images.json?v=' + Date.now());
@@ -526,28 +487,7 @@
       allImages = data.images || [];
       buildNav(data.groups || []);
       buildFilterBar(data.groups || []);
-
-      // read URL param and apply filter on load
-      var catParam = getUrlParam('cat');
-      var groupParam = getUrlParam('group');
-
-      if (catParam) {
-        // find and activate the matching nav link
-        var matchBtn = null;
-        document.querySelectorAll('.nav-link[data-cat]').forEach(function(btn) {
-          if (btn.dataset.cat === catParam) matchBtn = btn;
-        });
-        filterBy('category', catParam, matchBtn);
-      } else if (groupParam) {
-        var matchBtn = null;
-        document.querySelectorAll('.filter-btn[data-group]').forEach(function(btn) {
-          if (btn.dataset.group === groupParam) matchBtn = btn;
-        });
-        filterBy('group', groupParam, matchBtn);
-      } else {
-        filterBy('all', 'all', document.querySelector('.filter-btn'));
-      }
-
+      renderGallery('all', 'all');
     } catch(e) {
       document.getElementById('loadingMsg').textContent = 'Gallery unavailable — please try again shortly.';
     } finally {
@@ -555,7 +495,6 @@
     }
   }
 
-  // ── BUILD SIDEBAR NAV ──
   function buildNav(groups) {
     var nav = document.getElementById('sidebarNav');
     nav.innerHTML = '';
@@ -570,11 +509,8 @@
         var btn = document.createElement('button');
         btn.className = 'nav-link';
         btn.textContent = cat.label;
-        btn.dataset.cat = cat.slug;
         btn.onclick = function() {
           filterBy('category', cat.slug, btn);
-          // update URL without reload
-          history.replaceState(null, '', '?cat=' + cat.slug);
           if (window.innerWidth <= 750) document.getElementById('sidebar').classList.remove('open');
         };
         section.appendChild(btn);
@@ -583,7 +519,6 @@
     });
   }
 
-  // ── BUILD FILTER BAR ──
   function buildFilterBar(groups) {
     var bar = document.getElementById('filterBar');
     bar.querySelectorAll('.filter-btn:not(:first-of-type)').forEach(function(b) { b.remove(); });
@@ -591,16 +526,11 @@
       var btn = document.createElement('button');
       btn.className = 'filter-btn';
       btn.textContent = group.label;
-      btn.dataset.group = group.slug;
-      btn.onclick = function() {
-        filterBy('group', group.slug, btn);
-        history.replaceState(null, '', '?group=' + group.slug);
-      };
+      btn.onclick = function() { filterBy('group', group.slug, btn); };
       bar.appendChild(btn);
     });
   }
 
-  // ── FILTER ──
   function filterBy(type, value, btn) {
     document.querySelectorAll('.nav-link').forEach(function(l) { l.classList.remove('active'); });
     document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
@@ -608,7 +538,6 @@
     renderGallery(type, value);
   }
 
-  // ── RENDER GALLERY ──
   function renderGallery(type, value) {
     var grid = document.getElementById('grid');
     grid.innerHTML = '';
@@ -624,13 +553,9 @@
     document.getElementById('galleryCount').textContent = visibleImages.length > 0 ? visibleImages.length + ' photos' : '';
 
     var titleEl = document.getElementById('galleryTitle');
-    if (type === 'all') {
-      titleEl.textContent = 'All Photos';
-    } else if (type === 'group') {
-      titleEl.textContent = value.charAt(0).toUpperCase() + value.slice(1);
-    } else {
-      titleEl.textContent = visibleImages[0] ? visibleImages[0].categoryLabel : value;
-    }
+    if (type === 'all') titleEl.textContent = 'All Photos';
+    else if (type === 'group') titleEl.textContent = value.charAt(0).toUpperCase() + value.slice(1);
+    else titleEl.textContent = visibleImages[0] ? visibleImages[0].categoryLabel : value;
 
     visibleImages.forEach(function(img, idx) {
       var item = document.createElement('div');
@@ -644,9 +569,7 @@
 
       var overlay = document.createElement('div');
       overlay.className = 'grid-item-overlay';
-      overlay.innerHTML =
-        '<span class="overlay-title">' + img.title + '</span>' +
-        '<span class="overlay-cat">' + img.categoryLabel + '</span>';
+      overlay.innerHTML = '<span class="overlay-title">' + img.title + '</span><span class="overlay-cat">' + img.categoryLabel + '</span>';
 
       item.appendChild(image);
       item.appendChild(overlay);
@@ -654,7 +577,6 @@
     });
   }
 
-  // ── LIGHTBOX ──
   function openLightbox(idx) {
     currentLbIndex = idx;
     updateLightbox();
@@ -684,12 +606,10 @@
     if (e.target === document.getElementById('lightbox')) closeLightbox();
   }
 
-  // ── MOBILE ──
   function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('open');
   }
 
-  // ── KEYBOARD ──
   document.addEventListener('keydown', function(e) {
     if (!document.getElementById('lightbox').classList.contains('open')) return;
     if (e.key === 'Escape') closeLightbox();
@@ -697,7 +617,7 @@
     if (e.key === 'ArrowLeft') lbNav(-1);
   });
 
-  // ── PROTECTION ──
+  /* ── IMAGE PROTECTION ── */
   document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
   document.addEventListener('dragstart', function(e) { e.preventDefault(); });
 
