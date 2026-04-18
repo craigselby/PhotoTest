@@ -24,14 +24,14 @@ jobs:
           import os, json, re
 
           IMAGE_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.webp'}
-          GROUPS = ['general', 'music', 'sports']
+          GROUPS = ['latest', 'general', 'music', 'sports']
 
           def slugify(name):
-              return name.lower().replace(' ', '-')
+              return name.lower().replace(' ', '-').replace('_', '-')
 
           def labelify(slug):
               overrides = {
-                  'm2m': 'Metal 2 The Masses \u2014',
+                  'm2m': 'Metal 2 The Masses -',
                   'ffltech': 'FFLtech',
                   'gv70': 'gv70',
                   'ngpw': 'NGPW',
@@ -104,9 +104,10 @@ jobs:
                           featured_count += 1
                           print(f'  [FEATURED] {fname}')
               if categories:
+                  group_label = 'Latest Work' if group == 'latest' else group.capitalize()
                   manifest['groups'].append({
                       'slug': group,
-                      'label': group.capitalize(),
+                      'label': group_label,
                       'categories': categories
                   })
 

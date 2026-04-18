@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Craig Selby — CS Photography</title>
+<title>Craig Selby - CS Photography</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -12,9 +12,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif;font-weight:300;display:flex;min-height:100vh;overflow-x:hidden}
-/* only protect img inside gallery/slideshow not buttons */
 .slideshow img,.cat-card img{pointer-events:none;user-select:none;-webkit-user-drag:none}
-/* SIDEBAR */
 .sidebar{width:var(--sidebar);min-width:var(--sidebar);background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;z-index:10;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
 .sidebar-brand{padding:2rem 1.5rem 1.5rem;border-bottom:1px solid var(--border)}
 .brand-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--gold);letter-spacing:.05em;line-height:1.1;display:block;margin-bottom:.3rem}
@@ -22,15 +20,18 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif
 .gold-rule{width:40px;height:1px;background:var(--gold);opacity:.4;margin:.8rem 0 0}
 .nav-section{padding:1.4rem 1.5rem .4rem}
 .nav-label{font-size:.6rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:block}
+.nav-label.latest-label{color:var(--gold-l)}
 .nav-link{display:block;font-size:.8rem;font-weight:300;color:var(--muted);padding:.32rem 0;transition:color .2s,padding-left .2s;text-decoration:none;line-height:1.4}
 .nav-link:hover{color:var(--white);padding-left:.4rem}
+.nav-section.latest-section{border-bottom:1px solid var(--border);margin-bottom:.5rem;padding-bottom:1rem}
+.nav-section.latest-section .nav-link{color:var(--white)}
+.nav-section.latest-section .nav-link:hover{color:var(--gold)}
 .sidebar-footer{margin-top:auto;padding:1.5rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:.8rem}
 .footer-link{font-size:.72rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:color .2s}
 .footer-link:hover{color:var(--white)}
 .social-row{display:flex;gap:1rem}
 .social-link{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
 .social-link:hover{color:var(--gold)}
-/* MAIN */
 .main{flex:1;display:flex;flex-direction:column;min-width:0;overflow-y:auto}
 /* SLIDESHOW */
 .slideshow{position:relative;width:100%;height:80vh;min-height:400px;overflow:hidden;background:var(--bg)}
@@ -45,8 +46,7 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif
 .slide.active .slide-title{opacity:1;transform:translateY(0)}
 .slide-sub{font-size:.78rem;font-weight:300;color:rgba(240,237,230,.7);margin-top:.5rem;letter-spacing:.05em;opacity:0;transform:translateY(10px);transition:opacity .6s .7s ease,transform .6s .7s ease}
 .slide.active .slide-sub{opacity:1;transform:translateY(0)}
-/* ARROWS - must NOT have pointer-events:none */
-.slide-prev,.slide-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(10,10,15,.5);border:1px solid rgba(201,168,76,.4);color:var(--white);width:3rem;height:3rem;font-size:1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:background .2s,border-color .2s;pointer-events:all}
+.slide-prev,.slide-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(10,10,15,.5);border:1px solid rgba(201,168,76,.4);color:var(--white);width:3rem;height:3rem;font-size:1.5rem;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:10;transition:background .2s,border-color .2s;pointer-events:all}
 .slide-prev:hover,.slide-next:hover{background:rgba(201,168,76,.25);border-color:var(--gold)}
 .slide-prev{left:1.5rem}
 .slide-next{right:1.5rem}
@@ -57,12 +57,26 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif
 .slideshow-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:1rem}
 .slideshow-placeholder h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,7vw,5.5rem);font-weight:300;color:var(--white);text-align:center;line-height:1}
 .slideshow-placeholder p{font-size:.8rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase}
-/* INTRO STRIP */
+/* INTRO */
 .intro-strip{padding:2rem 3rem;border-bottom:1px solid var(--border);background:var(--bg2);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
 .intro-strip p{font-family:'Cormorant Garamond',serif;font-size:clamp(.95rem,1.5vw,1.1rem);font-style:italic;color:var(--muted);max-width:65ch;line-height:1.65}
 .intro-strip p strong{color:var(--white);font-style:normal;font-weight:400}
 .intro-cta{font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.8rem 1.8rem;text-decoration:none;white-space:nowrap;transition:background .2s;flex-shrink:0}
 .intro-cta:hover{background:var(--gold-l)}
+/* LATEST STRIP */
+.latest-strip{padding:2rem 3rem;border-bottom:1px solid var(--border)}
+.latest-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.2rem}
+.latest-eyebrow{font-size:.6rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.latest-viewall{font-size:.6rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.latest-viewall:hover{color:var(--gold)}
+.latest-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.latest-card{position:relative;overflow:hidden;border-radius:4px;cursor:pointer;text-decoration:none;display:block;aspect-ratio:3/2}
+.latest-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.latest-card:hover img{transform:scale(1.05)}
+.latest-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,15,.85) 0%,transparent 60%);opacity:0;transition:opacity .3s;display:flex;flex-direction:column;justify-content:flex-end;padding:.8rem}
+.latest-card:hover .latest-card-overlay{opacity:1}
+.latest-card-title{font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--white);line-height:1.2}
+.latest-card-cat{font-size:.55rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-top:.2rem}
 /* CATEGORIES */
 .categories-section{padding:3rem;flex:1}
 .section-label{font-size:.6rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;display:block}
@@ -80,9 +94,8 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif
 .cat-card-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--white);line-height:1.2}
 .cat-card-count{font-size:.62rem;color:rgba(240,237,230,.5);margin-top:.3rem;letter-spacing:.05em}
 .loading-msg{text-align:center;padding:5rem;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--muted)}
-/* MOBILE */
 .mobile-toggle{display:none;position:fixed;top:1rem;left:1rem;z-index:200;background:var(--bg2);border:1px solid var(--border);color:var(--gold);padding:.5rem .9rem;font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-family:'Montserrat',sans-serif}
-@media(max-width:900px){.categories-section{padding:2rem 1.5rem}.intro-strip{padding:1.5rem}}
+@media(max-width:900px){.categories-section{padding:2rem 1.5rem}.intro-strip,.latest-strip{padding:1.5rem}}
 @media(max-width:750px){.mobile-toggle{display:block}.sidebar{position:fixed;left:-100%;transition:left .3s ease;height:100vh;z-index:150}.sidebar.open{left:0}.slide-content{left:1.5rem;bottom:2.5rem}.slide-prev{left:.5rem}.slide-next{right:.5rem}.intro-strip{flex-direction:column;align-items:flex-start}.intro-cta{width:100%;text-align:center}}
 </style>
 </head>
@@ -107,13 +120,20 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif
   <div class="slideshow" id="slideshow">
     <p class="loading-msg" id="ssLoading">Loading...</p>
     <span class="slide-count" id="slideCount"></span>
-    <button class="slide-prev" id="slidePrev" onclick="slideNav(-1)" style="display:none">&#8249;</button>
-    <button class="slide-next" id="slideNext" onclick="slideNav(1)" style="display:none">&#8250;</button>
+    <button class="slide-prev" id="slidePrev" onclick="slideNav(-1)">&#8249;</button>
+    <button class="slide-next" id="slideNext" onclick="slideNav(1)">&#8250;</button>
     <div class="slide-dots" id="slideDots"></div>
   </div>
   <div class="intro-strip">
     <p>Live music, wildlife, landscapes and sports photography from South Wales. <strong>Available for events, venues and collaborations.</strong></p>
     <a href="work-with-me.html" class="intro-cta">Work With Me</a>
+  </div>
+  <div id="latestStrip" style="display:none" class="latest-strip">
+    <div class="latest-header">
+      <span class="latest-eyebrow">Latest Work</span>
+      <a href="gallery.html?group=latest" class="latest-viewall">View all latest &#8250;</a>
+    </div>
+    <div class="latest-grid" id="latestGrid"></div>
   </div>
   <div class="categories-section" id="catsSection">
     <p class="loading-msg" id="catsLoading">Loading galleries...</p>
@@ -138,6 +158,7 @@ async function init(){
   }
   buildNav();
   buildSlideshow();
+  buildLatest();
   buildCats();
 }
 
@@ -146,9 +167,9 @@ function buildNav(){
   nav.innerHTML='';
   manifest.groups.forEach(function(g){
     var sec=document.createElement('div');
-    sec.className='nav-section';
+    sec.className='nav-section'+(g.slug==='latest'?' latest-section':'');
     var lbl=document.createElement('span');
-    lbl.className='nav-label';
+    lbl.className='nav-label'+(g.slug==='latest'?' latest-label':'');
     lbl.textContent=g.label;
     sec.appendChild(lbl);
     g.categories.forEach(function(c){
@@ -166,39 +187,28 @@ function buildSlideshow(){
   var ss=document.getElementById('slideshow');
   var loading=document.getElementById('ssLoading');
   if(loading) loading.remove();
-
   slides=manifest.images.filter(function(i){return i.featured===true;});
-
   if(slides.length===0){
     ss.innerHTML='<div class="slideshow-placeholder"><h1>Craig Selby</h1><p>CS Photography &nbsp;&middot;&nbsp; Port Talbot, Wales</p></div>';
     return;
   }
-
-  // show arrows and dots only when we have slides
   document.getElementById('slidePrev').style.display='flex';
   document.getElementById('slideNext').style.display='flex';
-
-  // insert slides before arrows
   var prev=document.getElementById('slidePrev');
   slides.forEach(function(img,idx){
     var d=document.createElement('div');
     d.className='slide'+(idx===0?' active':'');
     var im=document.createElement('img');
-    im.src=img.src;
-    im.alt=img.title;
+    im.src=img.src;im.alt=img.title;
     if(idx>0) im.loading='lazy';
     var ov=document.createElement('div');
     ov.className='slide-overlay';
     var ct=document.createElement('div');
     ct.className='slide-content';
     ct.innerHTML='<span class="slide-eyebrow">'+img.categoryLabel+'</span><div class="slide-title">Craig Selby</div><div class="slide-sub">'+img.title+'</div>';
-    d.appendChild(im);
-    d.appendChild(ov);
-    d.appendChild(ct);
+    d.appendChild(im);d.appendChild(ov);d.appendChild(ct);
     ss.insertBefore(d,prev);
   });
-
-  // dots
   var dots=document.getElementById('slideDots');
   slides.forEach(function(_,idx){
     var dot=document.createElement('button');
@@ -206,7 +216,6 @@ function buildSlideshow(){
     dot.onclick=function(){goTo(idx);};
     dots.appendChild(dot);
   });
-
   updateCount();
   startTimer();
 }
@@ -219,28 +228,42 @@ function goTo(idx){
   cur=(idx+slides.length)%slides.length;
   if(sl[cur]) sl[cur].classList.add('active');
   if(dt[cur]) dt[cur].classList.add('active');
-  updateCount();
-  resetTimer();
+  updateCount();resetTimer();
 }
-
 function slideNav(dir){goTo(cur+dir);}
-
 function updateCount(){
   var el=document.getElementById('slideCount');
   if(el&&slides.length>1) el.textContent=(cur+1)+' / '+slides.length;
 }
-
-function startTimer(){
-  if(slides.length<=1) return;
-  timer=setInterval(function(){goTo(cur+1);},5000);
-}
-
+function startTimer(){if(slides.length<=1) return;timer=setInterval(function(){goTo(cur+1);},5000);}
 function resetTimer(){clearInterval(timer);startTimer();}
+
+function buildLatest(){
+  var latestImgs=manifest.images.filter(function(i){return i.group==='latest';});
+  if(latestImgs.length===0) return;
+  document.getElementById('latestStrip').style.display='block';
+  var grid=document.getElementById('latestGrid');
+  // show up to 9 preview images across all latest categories
+  var preview=latestImgs.slice(0,9);
+  preview.forEach(function(img){
+    var a=document.createElement('a');
+    a.className='latest-card';
+    a.href='gallery.html?cat='+img.category;
+    var im=document.createElement('img');
+    im.src=img.src;im.alt=img.title;im.loading='lazy';
+    var ov=document.createElement('div');
+    ov.className='latest-card-overlay';
+    ov.innerHTML='<span class="latest-card-title">'+img.title+'</span><span class="latest-card-cat">'+img.categoryLabel+'</span>';
+    a.appendChild(im);a.appendChild(ov);grid.appendChild(a);
+  });
+}
 
 function buildCats(){
   var sec=document.getElementById('catsSection');
   sec.innerHTML='';
-  if(manifest.groups.length===0){
+  // exclude latest from the main categories grid — it has its own strip
+  var mainGroups=manifest.groups.filter(function(g){return g.slug!=='latest';});
+  if(mainGroups.length===0){
     sec.innerHTML='<p style="color:var(--muted);font-style:italic;text-align:center;padding:3rem">No galleries yet.</p>';
     return;
   }
@@ -254,7 +277,7 @@ function buildCats(){
   sec.appendChild(ttl);
   var wrap=document.createElement('div');
   wrap.className='groups-wrapper';
-  manifest.groups.forEach(function(g){
+  mainGroups.forEach(function(g){
     var blk=document.createElement('div');
     blk.className='group-block';
     var glbl=document.createElement('div');
@@ -264,32 +287,27 @@ function buildCats(){
     var grid=document.createElement('div');
     grid.className='cat-grid';
     g.categories.forEach(function(c){
-      var imgs=manifest.images.filter(function(i){return i.category===c.slug;});
+      var imgs=manifest.images.filter(function(i){return i.category===c.slug&&i.group===g.slug;});
       var cover=imgs.find(function(i){return i.featured;})||imgs[0];
       var a=document.createElement('a');
       a.className='cat-card';
       a.href='gallery.html?cat='+c.slug;
       if(cover){
         var im=document.createElement('img');
-        im.src=cover.src;
-        im.alt=c.label;
-        im.loading='lazy';
+        im.src=cover.src;im.alt=c.label;im.loading='lazy';
         a.appendChild(im);
       }
       var ov=document.createElement('div');
       ov.className='cat-card-overlay';
       ov.innerHTML='<span class="cat-card-label">'+g.label+'</span><span class="cat-card-title">'+c.label+'</span><span class="cat-card-count">'+imgs.length+' photo'+(imgs.length!==1?'s':'')+'</span>';
-      a.appendChild(ov);
-      grid.appendChild(a);
+      a.appendChild(ov);grid.appendChild(a);
     });
-    blk.appendChild(grid);
-    wrap.appendChild(blk);
+    blk.appendChild(grid);wrap.appendChild(blk);
   });
   sec.appendChild(wrap);
 }
 
 function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');}
-
 document.addEventListener('contextmenu',function(e){e.preventDefault();});
 document.addEventListener('dragstart',function(e){e.preventDefault();});
 document.addEventListener('keydown',function(e){
@@ -297,7 +315,6 @@ document.addEventListener('keydown',function(e){
   if(e.key==='ArrowRight') slideNav(1);
   if(e.key==='ArrowLeft') slideNav(-1);
 });
-
 init();
 </script>
 </body>

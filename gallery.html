@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a0a0f;--bg2:#13131c;--gold:#c9a84c;--white:#f0ede6;--muted:#888880;--border:rgba(201,168,76,0.15);--sidebar:270px}
+:root{--bg:#0a0a0f;--bg2:#13131c;--gold:#c9a84c;--gold-l:#e8c96e;--white:#f0ede6;--muted:#888880;--border:rgba(201,168,76,0.15);--sidebar:270px}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif;font-weight:300;display:flex;min-height:100vh;overflow-x:hidden}
@@ -20,10 +20,14 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif
 .gold-rule{width:40px;height:1px;background:var(--gold);opacity:.4;margin:.8rem 0 0}
 .nav-section{padding:1.4rem 1.5rem .4rem}
 .nav-label{font-size:.6rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:block}
+.nav-label.latest-label{color:var(--gold-l)}
 .nav-link{display:block;font-size:.8rem;font-weight:300;color:var(--muted);padding:.32rem 0;transition:color .2s,padding-left .2s;cursor:pointer;background:none;border:none;text-align:left;width:100%;font-family:'Montserrat',sans-serif;line-height:1.4;text-decoration:none}
 .nav-link:hover{color:var(--white);padding-left:.4rem}
 .nav-link.active{color:var(--gold);padding-left:.4rem}
 .nav-link.active::before{content:'- ';color:var(--gold)}
+.nav-section.latest-section{border-bottom:1px solid var(--border);margin-bottom:.5rem;padding-bottom:1rem}
+.nav-section.latest-section .nav-link{color:var(--white)}
+.nav-section.latest-section .nav-link:hover{color:var(--gold)}
 .sidebar-footer{margin-top:auto;padding:1.5rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:.8rem}
 .footer-link{font-size:.72rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:color .2s}
 .footer-link:hover{color:var(--white)}
@@ -129,9 +133,7 @@ var allImgs=[];
 var visible=[];
 var lbIdx=0;
 
-function getParam(k){
-  return new URLSearchParams(window.location.search).get(k);
-}
+function getParam(k){return new URLSearchParams(window.location.search).get(k);}
 
 async function load(){
   try{
@@ -143,7 +145,6 @@ async function load(){
     buildNav(data.groups||[]);
     if(cat){
       document.getElementById('filterBar').style.display='none';
-      buildNav(data.groups||[]);
       var navBtn=document.querySelector('[data-cat="'+cat+'"]');
       filterBy('category',cat,navBtn);
     } else {
@@ -167,9 +168,9 @@ function buildNav(groups){
   nav.innerHTML='';
   groups.forEach(function(g){
     var sec=document.createElement('div');
-    sec.className='nav-section';
+    sec.className='nav-section'+(g.slug==='latest'?' latest-section':'');
     var lbl=document.createElement('span');
-    lbl.className='nav-label';
+    lbl.className='nav-label'+(g.slug==='latest'?' latest-label':'');
     lbl.textContent=g.label;
     sec.appendChild(lbl);
     g.categories.forEach(function(c){
@@ -226,7 +227,7 @@ function render(type,val){
   document.getElementById('galleryCount').textContent=visible.length>0?visible.length+' photos':'';
   var ttl=document.getElementById('galleryTitle');
   if(type==='all') ttl.textContent='All Photos';
-  else if(type==='group') ttl.textContent=val.charAt(0).toUpperCase()+val.slice(1);
+  else if(type==='group') ttl.textContent=val==='latest'?'Latest Work':val.charAt(0).toUpperCase()+val.slice(1);
   else ttl.textContent=visible[0]?visible[0].categoryLabel:val;
   visible.forEach(function(img,idx){
     var item=document.createElement('div');
@@ -241,18 +242,8 @@ function render(type,val){
   });
 }
 
-function openLb(idx){
-  lbIdx=idx;updateLb();
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function updateLb(){
-  var img=visible[lbIdx];
-  document.getElementById('lbImg').src=img.src;
-  document.getElementById('lbImg').alt=img.title;
-  document.getElementById('lbTitle').textContent=img.title;
-  document.getElementById('lbCat').textContent=img.categoryLabel;
-}
+function openLb(idx){lbIdx=idx;updateLb();document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+function updateLb(){var img=visible[lbIdx];document.getElementById('lbImg').src=img.src;document.getElementById('lbImg').alt=img.title;document.getElementById('lbTitle').textContent=img.title;document.getElementById('lbCat').textContent=img.categoryLabel;}
 function lbNav(dir){lbIdx=(lbIdx+dir+visible.length)%visible.length;updateLb();}
 function closeLb(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
 function lbBgClick(e){if(e.target===document.getElementById('lightbox')) closeLb();}
