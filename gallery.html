@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery — CS Photography</title>
+<title>Gallery - CS Photography</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -13,7 +13,6 @@
 html,body{height:100%}
 body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif;font-weight:300;display:flex;min-height:100vh;overflow-x:hidden}
 .grid-item img,.lightbox-inner img{pointer-events:none;user-select:none;-webkit-user-drag:none}
-/* SIDEBAR */
 .sidebar{width:var(--sidebar);min-width:var(--sidebar);background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto;z-index:10;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
 .sidebar-brand{padding:2rem 1.5rem 1.5rem;border-bottom:1px solid var(--border)}
 .brand-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--gold);letter-spacing:.05em;line-height:1.1;display:block;margin-bottom:.3rem;text-decoration:none}
@@ -24,29 +23,25 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif
 .nav-link{display:block;font-size:.8rem;font-weight:300;color:var(--muted);padding:.32rem 0;transition:color .2s,padding-left .2s;cursor:pointer;background:none;border:none;text-align:left;width:100%;font-family:'Montserrat',sans-serif;line-height:1.4;text-decoration:none}
 .nav-link:hover{color:var(--white);padding-left:.4rem}
 .nav-link.active{color:var(--gold);padding-left:.4rem}
-.nav-link.active::before{content:'— ';color:var(--gold)}
+.nav-link.active::before{content:'- ';color:var(--gold)}
 .sidebar-footer{margin-top:auto;padding:1.5rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:.8rem}
 .footer-link{font-size:.72rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:color .2s}
 .footer-link:hover{color:var(--white)}
 .social-row{display:flex;gap:1rem}
 .social-link{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
 .social-link:hover{color:var(--gold)}
-/* MAIN */
 .main{flex:1;display:flex;flex-direction:column;min-width:0}
 .topbar{padding:1.8rem 2.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem}
 .back-link{font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;white-space:nowrap;flex-shrink:0}
 .back-link:hover{color:var(--gold)}
-.back-link::before{content:'‹ '}
 .topbar-divider{width:1px;height:1rem;background:var(--border);flex-shrink:0}
 .topbar-intro{font-family:'Cormorant Garamond',serif;font-size:clamp(.9rem,1.4vw,1.1rem);font-weight:300;font-style:italic;color:var(--muted);line-height:1.5}
 .topbar-intro strong{color:var(--white);font-style:normal;font-weight:400}
-/* FILTER */
 .filter-bar{padding:.9rem 2.5rem;border-bottom:1px solid var(--border);background:var(--bg2);display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}
 .filter-label{font-size:.6rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-right:.5rem}
 .filter-btn{font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);background:none;border:1px solid transparent;padding:.32rem .85rem;cursor:pointer;transition:all .2s}
 .filter-btn:hover{color:var(--white);border-color:var(--border)}
 .filter-btn.active{color:var(--bg);background:var(--gold);border-color:var(--gold)}
-/* GALLERY */
 .gallery{padding:2rem 2.5rem;flex:1}
 .gallery-header{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.5rem}
 .gallery-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;color:var(--white)}
@@ -63,7 +58,6 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif
 .overlay-cat{font-size:.58rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:.25rem}
 .state-msg{text-align:center;padding:5rem 2rem;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;color:var(--muted);display:none}
 .state-msg.visible{display:block}
-/* LIGHTBOX */
 .lightbox{display:none;position:fixed;inset:0;background:rgba(10,10,15,.96);z-index:100;align-items:center;justify-content:center;padding:2rem}
 .lightbox.open{display:flex}
 .lightbox-inner{max-width:90vw;max-height:90vh;position:relative;display:flex;flex-direction:column;align-items:center}
@@ -77,7 +71,6 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif
 .lightbox-nav:hover{color:var(--gold);border-color:var(--gold)}
 .lb-prev{left:-3.5rem}
 .lb-next{right:-3.5rem}
-/* MOBILE */
 .mobile-toggle{display:none;position:fixed;top:1rem;left:1rem;z-index:200;background:var(--bg2);border:1px solid var(--border);color:var(--gold);padding:.5rem .9rem;font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;font-family:'Montserrat',sans-serif}
 @media(max-width:750px){.mobile-toggle{display:block}.sidebar{position:fixed;left:-100%;transition:left .3s ease;height:100vh;z-index:150}.sidebar.open{left:0}.topbar,.filter-bar,.gallery{padding-left:1.2rem;padding-right:1.2rem}.lb-prev{left:-0.5rem}.lb-next{right:-0.5rem}}
 </style>
@@ -92,7 +85,7 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif
   </div>
   <nav id="sidebarNav"></nav>
   <div class="sidebar-footer">
-    <a href="/cdn-cgi/l/email-protection#f89b8a99919fb89b8a99919f8b9d949a81d69b97d68d93" class="footer-link">Contact</a>
+    <a href="mailto:craig@craigselby.co.uk" class="footer-link">Contact</a>
     <div class="social-row">
       <a href="https://instagram.com/craigselby" class="social-link" target="_blank">Instagram</a>
       <a href="work-with-me.html" class="social-link">Work With Me</a>
@@ -101,9 +94,9 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif
 </aside>
 <main class="main">
   <div class="topbar">
-    <a href="index.html" class="back-link">Home</a>
+    <a href="index.html" class="back-link">&#8249; Home</a>
     <div class="topbar-divider"></div>
-    <p class="topbar-intro">If you're organising an event or seeking a photographer, <strong>I'd be delighted to hear from you.</strong></p>
+    <p class="topbar-intro">If you are organising an event or seeking a photographer, <strong>I would be delighted to hear from you.</strong></p>
   </div>
   <div class="filter-bar" id="filterBar">
     <span class="filter-label">Filter</span>
@@ -131,32 +124,36 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',sans-serif
     </div>
   </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 var allImgs=[];
 var visible=[];
 var lbIdx=0;
 
-function getParam(k){return new URLSearchParams(window.location.search).get(k);}
+function getParam(k){
+  return new URLSearchParams(window.location.search).get(k);
+}
 
 async function load(){
   try{
     var r=await fetch('images.json?v='+Date.now());
     var data=await r.json();
     allImgs=data.images||[];
-    buildNav(data.groups||[]);
-    buildFilterBar(data.groups||[]);
     var cat=getParam('cat');
     var grp=getParam('group');
+    buildNav(data.groups||[]);
     if(cat){
-      // hide filter bar — not useful when viewing a specific category
       document.getElementById('filterBar').style.display='none';
-      var btn=document.querySelector('[data-cat="'+cat+'"]');
-      filterBy('category',cat,btn);
-    } else if(grp){
-      var btn=document.querySelector('[data-grp="'+grp+'"]');
-      filterBy('group',grp,btn);
+      buildNav(data.groups||[]);
+      var navBtn=document.querySelector('[data-cat="'+cat+'"]');
+      filterBy('category',cat,navBtn);
     } else {
-      filterBy('all','all',document.querySelector('.filter-btn'));
+      buildFilterBar(data.groups||[]);
+      if(grp){
+        var grpBtn=document.querySelector('[data-grp="'+grp+'"]');
+        filterBy('group',grp,grpBtn);
+      } else {
+        filterBy('all','all',document.querySelector('.filter-btn'));
+      }
     }
   }catch(e){
     document.getElementById('loadingMsg').textContent='Gallery unavailable.';
@@ -181,8 +178,8 @@ function buildNav(groups){
       btn.textContent=c.label;
       btn.dataset.cat=c.slug;
       btn.onclick=function(){
-        filterBy('category',c.slug,btn);
         document.getElementById('filterBar').style.display='none';
+        filterBy('category',c.slug,btn);
         history.replaceState(null,'','?cat='+c.slug);
         if(window.innerWidth<=750) document.getElementById('sidebar').classList.remove('open');
       };
@@ -249,7 +246,6 @@ function openLb(idx){
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow='hidden';
 }
-
 function updateLb(){
   var img=visible[lbIdx];
   document.getElementById('lbImg').src=img.src;
@@ -257,7 +253,6 @@ function updateLb(){
   document.getElementById('lbTitle').textContent=img.title;
   document.getElementById('lbCat').textContent=img.categoryLabel;
 }
-
 function lbNav(dir){lbIdx=(lbIdx+dir+visible.length)%visible.length;updateLb();}
 function closeLb(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
 function lbBgClick(e){if(e.target===document.getElementById('lightbox')) closeLb();}
@@ -266,4 +261,13 @@ function toggleSidebar(){document.getElementById('sidebar').classList.toggle('op
 document.addEventListener('contextmenu',function(e){e.preventDefault();});
 document.addEventListener('dragstart',function(e){e.preventDefault();});
 document.addEventListener('keydown',function(e){
-  if(!document.getElementById('lightbox').classList.contains('open')) re
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key==='Escape') closeLb();
+  if(e.key==='ArrowRight') lbNav(1);
+  if(e.key==='ArrowLeft') lbNav(-1);
+});
+
+load();
+</script>
+</body>
+</html>
