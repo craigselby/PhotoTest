@@ -1,6 +1,16 @@
 {
   "groups": [
     {
+      "slug": "latest",
+      "label": "Latest Work",
+      "categories": [
+        {
+          "slug": "m2tm---house-of-hosts",
+          "label": "M2tm House Of Hosts"
+        }
+      ]
+    },
+    {
       "slug": "general",
       "label": "General",
       "categories": [
@@ -34,6 +44,230 @@
     }
   ],
   "images": [
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-1.jpg",
+      "title": "M2Tm   House Of Hosts 1",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-10.jpg",
+      "title": "M2Tm   House Of Hosts 10",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-11.jpg",
+      "title": "M2Tm   House Of Hosts 11",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-12.jpg",
+      "title": "M2Tm   House Of Hosts 12",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-13.jpg",
+      "title": "M2Tm   House Of Hosts 13",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-14.jpg",
+      "title": "M2Tm   House Of Hosts 14",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-15.jpg",
+      "title": "M2Tm   House Of Hosts 15",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-16.jpg",
+      "title": "M2Tm   House Of Hosts 16",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-17.jpg",
+      "title": "M2Tm   House Of Hosts 17",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-18.jpg",
+      "title": "M2Tm   House Of Hosts 18",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-19.jpg",
+      "title": "M2Tm   House Of Hosts 19",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-2.jpg",
+      "title": "M2Tm   House Of Hosts 2",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-20.jpg",
+      "title": "M2Tm   House Of Hosts 20",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-21.jpg",
+      "title": "M2Tm   House Of Hosts 21",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-22.jpg",
+      "title": "M2Tm   House Of Hosts 22",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-23.jpg",
+      "title": "M2Tm   House Of Hosts 23",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-24.jpg",
+      "title": "M2Tm   House Of Hosts 24",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-25.jpg",
+      "title": "M2Tm   House Of Hosts 25",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-26.jpg",
+      "title": "M2Tm   House Of Hosts 26",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-27.jpg",
+      "title": "M2Tm   House Of Hosts 27",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-28.jpg",
+      "title": "M2Tm   House Of Hosts 28",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-3.jpg",
+      "title": "M2Tm   House Of Hosts 3",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-4.jpg",
+      "title": "M2Tm   House Of Hosts 4",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-5.jpg",
+      "title": "M2Tm   House Of Hosts 5",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-6.jpg",
+      "title": "M2Tm   House Of Hosts 6",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-7.jpg",
+      "title": "M2Tm   House Of Hosts 7",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-8.jpg",
+      "title": "M2Tm   House Of Hosts 8",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/M2TM - House Of Hosts/M2TM - House Of Hosts-9.jpg",
+      "title": "M2Tm   House Of Hosts 9",
+      "category": "m2tm---house-of-hosts",
+      "group": "latest",
+      "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
     {
       "src": "images/general/Gnoll test/20250530-AX0A2582.jpg",
       "title": "20250530 Ax0A2582",
