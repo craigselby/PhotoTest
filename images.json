@@ -7,6 +7,10 @@
         {
           "slug": "m2tm---house-of-hosts",
           "label": "M2tm House Of Hosts"
+        },
+        {
+          "slug": "port-talbot-car-show",
+          "label": "Port Talbot Car Show"
         }
       ]
     },
@@ -266,6 +270,158 @@
       "category": "m2tm---house-of-hosts",
       "group": "latest",
       "categoryLabel": "M2tm House Of Hosts",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20240916-AX0A9529.jpg",
+      "title": "20240916 Ax0A9529",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3750.jpg",
+      "title": "20250719 Ax0A3750",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3759.jpg",
+      "title": "20250719 Ax0A3759",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3764.jpg",
+      "title": "20250719 Ax0A3764",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3769.jpg",
+      "title": "20250719 Ax0A3769",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3779.jpg",
+      "title": "20250719 Ax0A3779",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3780.jpg",
+      "title": "20250719 Ax0A3780",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3784.jpg",
+      "title": "20250719 Ax0A3784",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3788.jpg",
+      "title": "20250719 Ax0A3788",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3797.jpg",
+      "title": "20250719 Ax0A3797",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3814.jpg",
+      "title": "20250719 Ax0A3814",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3830.jpg",
+      "title": "20250719 Ax0A3830",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3838.jpg",
+      "title": "20250719 Ax0A3838",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3856.jpg",
+      "title": "20250719 Ax0A3856",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3886.jpg",
+      "title": "20250719 Ax0A3886",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3889.jpg",
+      "title": "20250719 Ax0A3889",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3893.jpg",
+      "title": "20250719 Ax0A3893",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3907.jpg",
+      "title": "20250719 Ax0A3907",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
+      "featured": false
+    },
+    {
+      "src": "images/latest/Port Talbot Car Show/20250719-AX0A3910.jpg",
+      "title": "20250719 Ax0A3910",
+      "category": "port-talbot-car-show",
+      "group": "latest",
+      "categoryLabel": "Port Talbot Car Show",
       "featured": false
     },
     {
