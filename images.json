@@ -45,6 +45,16 @@
           "label": "M2tm White Leather"
         }
       ]
+    },
+    {
+      "slug": "sports",
+      "label": "Sports",
+      "categories": [
+        {
+          "slug": "wrestling",
+          "label": "Wrestling"
+        }
+      ]
     }
   ],
   "images": [
@@ -1366,6 +1376,14 @@
       "category": "m2tm---white-leather",
       "group": "music",
       "categoryLabel": "M2tm White Leather",
+      "featured": false
+    },
+    {
+      "src": "images/sports/Wrestling/Wrestling -1.jpg",
+      "title": "Wrestling  1",
+      "category": "wrestling",
+      "group": "sports",
+      "categoryLabel": "Wrestling",
       "featured": false
     }
   ]
