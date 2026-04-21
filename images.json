@@ -43,10 +43,6 @@
         {
           "slug": "m2tm---white-leather",
           "label": "M2tm White Leather"
-        },
-        {
-          "slug": "m2tm---test",
-          "label": "M2tm Test"
         }
       ]
     }
@@ -1370,22 +1366,6 @@
       "category": "m2tm---white-leather",
       "group": "music",
       "categoryLabel": "M2tm White Leather",
-      "featured": false
-    },
-    {
-      "src": "images/music/m2tm - Test/m2m - test-1.jpg",
-      "title": "M2M   Test 1",
-      "category": "m2tm---test",
-      "group": "music",
-      "categoryLabel": "M2tm Test",
-      "featured": false
-    },
-    {
-      "src": "images/music/m2tm - Test/m2m - test-2.jpg",
-      "title": "M2M   Test 2",
-      "category": "m2tm---test",
-      "group": "music",
-      "categoryLabel": "M2tm Test",
       "featured": false
     }
   ]
